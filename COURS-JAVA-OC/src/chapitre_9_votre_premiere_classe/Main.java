@@ -1,4 +1,4 @@
-package votre_premiere_classe;
+package chapitre_9_votre_premiere_classe;
 
 import java.security.GeneralSecurityException;
 
