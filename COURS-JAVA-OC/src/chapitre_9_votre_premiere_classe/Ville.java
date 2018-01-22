@@ -76,9 +76,9 @@ public class Ville {
 		
 		int i = 0;
 		
-		while (i < bornesSuperieures.length && getNbreHabitants() >= bornesSuperieures [i]) {
-			i++;
+		while (i < bornesSuperieures.length && getNbreHabitants() >= bornesSuperieures [i]) {			
 			setCategorie(categories [i]);
+			i++;
 		}
 	}
 	
