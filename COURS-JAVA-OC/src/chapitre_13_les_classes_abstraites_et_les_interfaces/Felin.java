@@ -1,9 +1,9 @@
 package chapitre_13_les_classes_abstraites_et_les_interfaces;
 
-public abstract class Canin extends Animal {
+public abstract class Felin extends Animal {
 
 	void deplacement () {
-		System.out.println("Je me déplace en meute !");
+		System.out.println("Je me déplace seul !");
 	}
 	
 }
