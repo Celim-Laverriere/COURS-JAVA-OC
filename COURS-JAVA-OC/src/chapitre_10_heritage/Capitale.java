@@ -1,5 +1,7 @@
 package chapitre_10_heritage;
 
+import chapitre_14_les_exceptions.NomVilleException;
+import chapitre_14_les_exceptions.NombreHabitantException;
 import chapitre_9_votre_premiere_classe.Ville;
 
 public class Capitale extends Ville {
@@ -11,10 +13,15 @@ public class Capitale extends Ville {
 		this.setMonument("aucun");
 	}
 	
-	public Capitale(String nomVille, String nomPays, int nbreHabitants, String monument) {
+	public Capitale(String nomVille, String nomPays, int nbreHabitants, String monument) throws NombreHabitantException, NomVilleException {
 		super(nomVille, nomPays, nbreHabitants);
-		// TODO Auto-generated constructor stub
-		this.setMonument(monument);
+		if (nbreHabitants < 0) {
+			throw new NombreHabitantException();
+		} else {
+			
+			this.setMonument(monument);
+		}
+		
 	}
 
 

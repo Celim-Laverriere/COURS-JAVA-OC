@@ -1,8 +1,8 @@
 package chapitre_9_votre_premiere_classe;
 
-import java.security.GeneralSecurityException;
-
 import chapitre_10_heritage.Capitale;
+import chapitre_14_les_exceptions.NomVilleException;
+import chapitre_14_les_exceptions.NombreHabitantException;
 
 public class Main {
 
@@ -51,28 +51,54 @@ public class Main {
 		
 		
 /******************** Chapitre 10 - L'héritage *****************************/		
-		Capitale cap = new Capitale("Paris", "France", 5_253_698, "La tour Eiffel");
-		System.out.println(cap.decrisToi());
+		try {
+			Capitale cap = new Capitale("Paris", "France", 5_253_698, "La tour Eiffel");
+			System.out.println(cap.decrisToi());
+		} catch (NombreHabitantException e) {
+			// TODO: handle exception
+		} catch (NomVilleException e) {
+			// TODO: handle exception
+		}
 		
 		Ville [] tableau = new Ville[6];
 		
-		String [] tab = {"Marseille", "Lille", "Caen", "Lyon", "Paris", "Nantes"};
-		int [] tab2 = {123456, 78456, 654987, 75832165, 1594, 213};
+		String [] tab = {"Ma", "Lille", "Caen", "Lyon", "Paris", "Nantes"};
+		int [] tab2 = { 120000, 78456, 654987, 75832165, 1594, -235};
 		
 		for (int i = 0; i < 6; i++) {
 			
 			if ( i < 3) {
-				Ville V = new Ville (tab[i], "France", tab2[i]);
+			Ville V = null;
+			
+			try {
+				V = new Ville (tab[i], "France", tab2[i]);
 				tableau [i] = V;
+			} catch (NombreHabitantException | NomVilleException e2) {
+				System.out.println(e2.getMessage());
+			} 
+				
 			} else {
-				Capitale C = new Capitale(tab[i], "France", tab2[i], "la tour Eiffel");
-				tableau [i] = C;
+				
+				try {
+					Capitale C = new Capitale(tab[i], "France", tab2[i], "la tour Eiffel");
+					tableau [i] = C;
+				} catch (NombreHabitantException | NomVilleException e2) {
+					// TODO: handle exception
+				} 
+				
 			}
 		}
 		
 		for (Ville v : tableau) {
-			System.out.println(v.decrisToi() + "\n");
+			try {
+				System.out.println(v.decrisToi() + "\n");
+			} catch (NullPointerException e) {
+				e.getMessage();
+			} 
+			
 		}
+		 
+		
 		
 		
 		

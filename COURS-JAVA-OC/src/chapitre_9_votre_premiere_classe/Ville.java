@@ -1,4 +1,5 @@
 package chapitre_9_votre_premiere_classe;
+import chapitre_14_les_exceptions.*;
 
 public class Ville {
 
@@ -18,14 +19,24 @@ public class Ville {
 		nbreInstances++;
 	}
 
-	public Ville(String nomVille, String nomPays, int nbreHabitants) {
+	public Ville(String nomVille, String nomPays, int nbreHabitants) throws NombreHabitantException, NomVilleException {
+		
 		super();
-		System.out.println("création d'un ville avec des paramètres !");
-		this.nomVille = nomVille;
-		this.nomPays = nomPays;
-		this.nbreHabitants = nbreHabitants;
-		categorieVille();
-		nbreInstances++;
+		
+			if (nbreHabitants < 0) {
+				throw new NombreHabitantException(nbreHabitants);
+			} if (nomVille.length() < 3) {
+				throw new NomVilleException("le nom de la ville est inférieur à 3 caractères ! nom = " + nomVille);
+			} else {
+			    
+				System.out.println("création d'un ville avec des paramètres !");
+				this.nomVille = nomVille;
+				this.nomPays = nomPays;
+				this.nbreHabitants = nbreHabitants;
+				categorieVille();
+				nbreInstances++;
+			}
+		
 	}
 	
 	public String getNomVille() {

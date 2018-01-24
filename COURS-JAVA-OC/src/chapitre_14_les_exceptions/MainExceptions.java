@@ -3,8 +3,23 @@ package chapitre_14_les_exceptions;
 public class MainExceptions {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		int j = 20, i = 0;
+		
+		try {
+		System.out.println(j/i);
+		} catch (ArithmeticException e) {
+			System.out.println("Division par zéro ! " + e.getMessage());
+		}
+		System.out.println("coucou toi");
 
+		try {
+			System.out.println("\n => " + (1/0));
+		} catch (ClassCastException e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println("action faite systématiquement !");
+		}
 	}
 
 }
