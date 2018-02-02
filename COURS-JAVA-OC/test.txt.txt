@@ -1,0 +1,3 @@
+Voici une ligne de text.
+Voici une autre ligne de text.
+Et comme je suis motivé, en voici une troisième !
