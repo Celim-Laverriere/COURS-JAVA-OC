@@ -11,6 +11,10 @@ public class PanneauAnimation extends JPanel{
 	private int posY = -50;
 	
 	public void paintComponent (Graphics g) {
+		
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+		
 		g.setColor(Color.RED);
 		g.fillOval(posX, posY, 50, 50);
 	}

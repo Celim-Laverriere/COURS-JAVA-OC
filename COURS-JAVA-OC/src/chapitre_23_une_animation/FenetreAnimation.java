@@ -18,18 +18,108 @@ public class FenetreAnimation extends JFrame {
 	
 	private void go() {
 		
-		for (int i = -50; i < panA.getWidth(); i++) {
-			int x = panA.getPosX(), y = panA.getPosY();
-			x++;
-			y++;
-			panA.setPosX(x);
-			panA.setPosY(y);
+//		for (;;) {
+//			int x = panA.getPosX(), y = panA.getPosY();
+//			x++;
+//			y++;
+//			panA.setPosX(x);
+//			panA.setPosY(y);
+//			panA.repaint();
+//			try {
+//				Thread.sleep(10);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//			
+//			if (x == panA.getWidth() || y == panA.getHeight()) {
+//				panA.setPosX(-50);
+//				panA.setPosY(-50);
+//			}
+//		}
+		
+		/***********************************************/
+		
+		int x = panA.getPosX(), y = panA.getPosY();
+		
+		boolean blackX = false;
+		boolean blackY = false;
+		
+		while (true) {
+			
+			if (x < 1) {
+				blackX = false;
+			}
+			
+			if (x > panA.getWidth()-50) {
+				blackX = true;
+			}
+			
+			if (y < 1 ) {
+				blackY = false;
+			}
+			
+			if (y > panA.getHeight()-50) {
+				blackY = true;
+			}
+			
+			if (!blackX) {
+				panA.setPosX(++x);
+			} else {
+				panA.setPosX(--x);
+			}
+			
+			if (!blackY) {
+				panA.setPosY(++y);
+			} else {
+				panA.setPosY(--y);
+			}
+			
 			panA.repaint();
+			
 			try {
-				Thread.sleep(10);
+				Thread.sleep(3);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
